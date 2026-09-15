@@ -27,12 +27,21 @@ function App() {
       <p>60 + 7 = {addNumber(60, 7)}</p>
       <h2>{y}</h2>
       <button onClick={myfunc}>Click Me</button>
+      <Greeting nama="Yuri" />
+      <Greeting nama="Anton" />
+      <Greeting nama="Aliya" />
+      <Greeting nama="Lyudmila" />
+      <Greeting nama="Nikolai" />
     </div>
   );
 }
 
 function addNumber(num1, num2) {
   return num1 + num2;
+}
+
+function Greeting(props) {
+  return <h2>Hello, {props.nama}</h2>
 }
 
 export default App;
