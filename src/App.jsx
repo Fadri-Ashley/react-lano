@@ -12,6 +12,14 @@ function Card({ name, age, hobby, city }) {
 }
 
 function App() {
+  function Greeting(cust) {
+    alert(`Hello, ${cust}`);
+  }
+
+  function handleChange(e) {
+    console.log(e.target.value);
+  }
+
   return (
     <div>
       <h1>Hello World</h1>
@@ -19,6 +27,40 @@ function App() {
       <Card name="Rusdi" age={35} hobby="Welding" city="Manhattan" />
       <Card name="Amba" age={33} hobby="Streaming" city="Ohio" />
       <Counter />
+
+      <FormTest />
+    </div>
+  );
+}
+
+function FormTest() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert(`Thx for submit, ${name}`);
+    setName("");
+    setEmail("");
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your name"
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Your email"
+        />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
