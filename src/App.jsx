@@ -1,47 +1,23 @@
-function App() {
-  const name = "Fadri";
-  const city = "Argatha";
-  const hobbies = ["Playing Guitar", "Reading Book", "Playing Games"];
-  
-  const mystyles = {
-    color: "red",
-    fontSize: "20px",
-    backgroundColor: "lightyellow",
-  };
-
-  const x = 10;
-  let y = "Banana"
-  if (x < 5) {
-    y = "Apple"
-  }
-
-  const myfunc = () => {
-    alert(y);
-  };
-
-  return (
-    <div className="profil">
-      <h1 style={mystyles}>Hello my name is {name}</h1>
+function Card({name, age, hobby, city}) {
+  return(
+    <div style={{ border: "1px solid gray", padding: "10px", margin: "10px" }}>
+      <h2>Hello, my name is {name}</h2>
+      <p>Age: {age}</p>
+      <p>My hobby is {hobby}</p>
       <p>I'm from {city}</p>
-      <p>My favorite hobby is {hobbies[2]}</p>
-      <p>60 + 7 = {addNumber(60, 7)}</p>
-      <h2>{y}</h2>
-      <button onClick={myfunc}>Click Me</button>
-      <Greeting nama="Yuri" />
-      <Greeting nama="Anton" />
-      <Greeting nama="Aliya" />
-      <Greeting nama="Lyudmila" />
-      <Greeting nama="Nikolai" />
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+      <Card name="Fadri" age={21} hobby="Playing game" city="Oslo" />
+      <Card name="Rusdi" age={35} hobby="Welding" city="Manhattan" />
+      <Card name="Amba" age={33} hobby="Streaming" city="Ohio" />
     </div>
   );
-}
-
-function addNumber(num1, num2) {
-  return num1 + num2;
-}
-
-function Greeting(props) {
-  return <h2>Hello, {props.nama}</h2>
 }
 
 export default App;
