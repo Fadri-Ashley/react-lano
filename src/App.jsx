@@ -1,12 +1,14 @@
-function Card({name, age, hobby, city}) {
-  return(
+import { useState } from "react";
+
+function Card({ name, age, hobby, city }) {
+  return (
     <div style={{ border: "1px solid gray", padding: "10px", margin: "10px" }}>
       <h2>Hello, my name is {name}</h2>
       <p>Age: {age}</p>
       <p>My hobby is {hobby}</p>
       <p>I'm from {city}</p>
     </div>
-  )
+  );
 }
 
 function App() {
@@ -16,6 +18,20 @@ function App() {
       <Card name="Fadri" age={21} hobby="Playing game" city="Oslo" />
       <Card name="Rusdi" age={35} hobby="Welding" city="Manhattan" />
       <Card name="Amba" age={33} hobby="Streaming" city="Ohio" />
+      <Counter />
+    </div>
+  );
+}
+
+function Counter() {
+  const [amount, setAmount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {amount}</p>
+      <button onClick={() => setAmount(amount + 1)}>Add</button>
+      <button onClick={() => setAmount(amount - 1)}>Sub</button>
+      <button onClick={() => setAmount(0)}>Reset</button>
     </div>
   );
 }
