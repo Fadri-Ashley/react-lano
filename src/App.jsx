@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function App() {
-  const [item, setItem] = useState([
-    { id: 1, name: "Learn usestate" },
+  const [items, setItems] = useState([
+    { id: 1, name: "Learn useState" },
     { id: 2, name: "Build simple CRUD" },
   ]);
 
@@ -16,26 +16,33 @@ function App() {
       name: newItem,
     };
 
-    setItem([...item, newData]);
+    setItems([...items, newData]);
     setNewItem("");
+  }
+
+  function handleDelete(id) {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
   }
 
   return (
     <div>
       <h1>Simple CRUD</h1>
 
-      <input 
-      type="text"
-      value={newItem}
-      onChange={(e) => setNewItem(e.target.value)}
-      placeholder="Write new item"
+      <input
+        type="text"
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
+        placeholder="Add New Item"
       />
 
       <button onClick={handleAdd}>Add</button>
-
       <ul>
-        {item.map((item) => (
-          <li key={item.id}>{item.name}</li>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.name}
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
+          </li>
         ))}
       </ul>
     </div>
